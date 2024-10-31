@@ -1,0 +1,45 @@
+{
+    "name": "trafficsupply/tsaccounts-laravel-package",
+    "description": "TSAccounts Laravel Package - Package to help with logging into TSAccounts.",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Diana van der Schouw",
+            "email": "diana.vds@trafficsupply.nl"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "TrafficSupply\\TSAccountsLaravelPackage\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TrafficSupply\\TSAccountsLaravelPackage\\Tests\\": "tests/"
+        }
+    },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "TrafficSupply\\TSAccountsLaravelPackage\\Providers\\TSAccountsServiceProvider"
+      ]
+    }
+  },
+    "require": {
+        "php": "^8.3",
+        "illuminate/database": "^11.30",
+        "illuminate/http": "^11.29",
+        "illuminate/routing": "^11.30",
+        "illuminate/support": "^11.29",
+        "illuminate/view": "^11.30",
+        "livewire/livewire": "^3.5"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "optimize-autoloader": true
+    }
+}
