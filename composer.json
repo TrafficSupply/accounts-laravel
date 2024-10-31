@@ -22,7 +22,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "TrafficSupply\\TSAccountsLaravelPackage\\Providers\\TSAccountsServiceProvider"
+        "ServiceProvider"
       ]
     }
   },

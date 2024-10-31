@@ -1,16 +1,14 @@
 <?php
 
-namespace TrafficSupply\TSAccountsLaravelPackage\Providers;
+namespace TrafficSupply\TSAccountsLaravelPackage;
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\ServiceProvider as ServiceProviderBase;
 use TrafficSupply\TSAccountsLaravelPackage\Middleware\NoTSAccountsToken;
 use TrafficSupply\TSAccountsLaravelPackage\Middleware\TSAccountsTokenIsValid;
-use TrafficSupply\TSAccountsLaravelPackage\View\Components\AppLayout;
-use TrafficSupply\TSAccountsLaravelPackage\View\Components\GuestLayout;
 
-final class TSAccountsServiceProvider extends ServiceProvider
+final class ServiceProvider extends ServiceProviderBase
 {
     /**
     * Bootstrap any package services.
