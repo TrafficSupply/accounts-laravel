@@ -42,6 +42,6 @@ final class ServiceProvider extends ServiceProviderBase
 
         Blade::componentNamespace('TrafficSupply\\AccountsLaravel\\Views\\Components', 'accounts');
 
-        $this->loadTranslationsFrom(__DIR__.'/lang', 'tsacounts');
+        $this->loadTranslationsFrom(__DIR__.'/lang', 'accounts');
     }
 }

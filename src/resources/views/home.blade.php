@@ -1,6 +1,6 @@
 <x-accounts::app-layout>
     <x-slot name="title">
-        {{ trans('tsacounts::profile.home') }}
+        {{ trans('accounts::profile.home') }}
     </x-slot>
-    <p class="self-center">{{trans('tsacounts::profile.welcome', ['name'=> \TrafficSupply\AccountsLaravel\Accounts::user()['name']])}}</p>
+    <p class="self-center">{{trans('accounts::profile.welcome', ['name'=> \TrafficSupply\AccountsLaravel\Accounts::user()['name']])}}</p>
 </x-accounts::app-layout>

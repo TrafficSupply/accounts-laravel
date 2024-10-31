@@ -22,10 +22,10 @@
                 <!-- Navigation Links -->
                 <div class="space-x-8 -my-px ms-10 flex">
                     <x-Accounts::nav-link :href="route('home')" :active="request()->routeIs('home')">
-                        {{ trans('tsacounts::profile.home') }}
+                        {{ trans('accounts::profile.home') }}
                     </x-Accounts::nav-link>
                     <x-Accounts::nav-link :href="route('logout')">
-                        {{ trans('tsacounts::profile.logout') }}
+                        {{ trans('accounts::profile.logout') }}
                     </x-Accounts::nav-link>
                 </div>
             </div>
