@@ -1,6 +1,6 @@
 <?php
 
-namespace TrafficSupply\TSAccountsLaravelPackage\Controllers;
+namespace TrafficSupply\AccountsLaravel\Controllers;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use InvalidArgumentException;
 use Throwable;
-use TrafficSupply\TSAccountsLaravelPackage\TSAccounts;
+use TrafficSupply\AccountsLaravel\Accounts;
 
-class TSAccountsController
+class AccountsController
 {
 
     public function login(Request $request): RedirectResponse
@@ -21,14 +21,14 @@ class TSAccountsController
         $request->session()->put('state', $state = Str::random(40));
 
         $query = http_build_query([
-            'client_id'     => Config::get('tsaccounts.client_id'),
+            'client_id'     => Config::get('accounts.client_id'),
             'redirect_uri'  => route('callback'),
             'response_type' => 'code',
             'state'         => $state,
-            'scopes'        => TSAccounts::scopes(),
+            'scopes'        => Accounts::scopes(),
         ]);
 
-        return Redirect::to(Config::get('tsaccounts.url') . '/oauth/authorize?' . $query);
+        return Redirect::to(Config::get('accounts.url') . '/oauth/authorize?' . $query);
 
     }
 
@@ -58,10 +58,10 @@ class TSAccountsController
             throw new InvalidArgumentException('Invalid state');
         }
 
-        $response = Http::asForm()->post(Config::get('tsaccounts.host') . '/oauth/token', [
+        $response = Http::asForm()->post(Config::get('accounts.host') . '/oauth/token', [
             'grant_type'    => 'authorization_code',
-            'client_id'     => Config::get('tsaccounts.client_id'),
-            'client_secret' => Config::get('tsaccounts.client_secret'),
+            'client_id'     => Config::get('accounts.client_id'),
+            'client_secret' => Config::get('accounts.client_secret'),
             'redirect_uri'  => route('callback'),
             'code'          => $validated['code'],
         ]);

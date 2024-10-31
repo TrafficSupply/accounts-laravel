@@ -1,6 +1,6 @@
 <?php
 
-namespace TrafficSupply\TSAccountsLaravelPackage\Middleware;
+namespace TrafficSupply\AccountsLaravel\Middleware;
 
 use Closure;
 use Exception;
@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 use Symfony\Component\HttpFoundation\Response;
-use TrafficSupply\TSAccountsLaravelPackage\TSAccounts;
+use TrafficSupply\AccountsLaravel\Accounts;
 
-class NoTSAccountsToken
+class AccountsTokenIsValid
 {
     /**
      * Handle an incoming request.
@@ -19,22 +19,34 @@ class NoTSAccountsToken
      */
     public function handle(Request $request, Closure $next): Response
     {
-        //check health of tsaccounts
+        //check health of accounts
         try {
-            $response = Http::get(config('tsaccounts.host') . '/up');
+            $response = Http::get(config('accounts.host') . '/up');
             if ($response->status() !== 200) {
                 throw new Exception;
             }
         } catch (Exception $e) {
-            return response()->json(['error' => 'TSAccounts is down'], 500);
+            return response()->json(['error' => 'Accounts is down'], 500);
         }
 
-        if (! TSAccounts::user()) {
+
+        if (! Accounts::user()) {
             if (! self::refreshToken()) {
-                return $next($request);
+                return redirect()->route('login');
             }
         }
-        return redirect()->route('home');
+        $user = Accounts::user();
+        (Accounts::userModel())::firstOrCreate(['id' => $user['id']], ['name' => $user['name'], 'email' => $user['email'], 'locale' => $user['locale'], 'theme' => $user['theme']]);
+
+        // check for any changes in the user
+        $localUser = (Accounts::UserModel())::findOrFail($user['id']);
+        if ($localUser->name !== $user['name'] || $localUser->email !== $user['email'] || $localUser->locale !== $user['locale'] || $localUser->theme !== $user['theme']) {
+            $localUser->update(['name' => $user['name'], 'email' => $user['email'], 'locale' => $user['locale'], 'theme' => $user['theme']]);
+        }
+
+        $request->session()->put('user_id', $user['id']);
+
+        return $next($request);
 
     }
 
@@ -42,12 +54,12 @@ class NoTSAccountsToken
     {
         $now = now()->timestamp;
         $refreshToken = Session::get('refresh_token');
-        $response = Http::post(config('tsaccounts.host') . '/oauth/token', [
+        $response = Http::post(config('accounts.host') . '/oauth/token', [
             'grant_type'    => 'refresh_token',
             'refresh_token' => $refreshToken,
-            'client_id'     => config('tsaccounts.client_id'),
-            'client_secret' => config('tsaccounts.client_secret'),
-            'scopes'        => TSAccounts::scopes(),
+            'client_id'     => config('accounts.client_id'),
+            'client_secret' => config('accounts.client_secret'),
+            'scopes'        => Accounts::scopes(),
         ]);
         $response = $response->json();
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace TrafficSupply\TSAccountsLaravelPackage;
+namespace TrafficSupply\AccountsLaravel;
 
 use GuzzleHttp\Promise\PromiseInterface;
 use Illuminate\Http\Client\ConnectionException;
@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 use Throwable;
-use TrafficSupply\TSAccountsLaravelPackage\Models\TsUser;
+use TrafficSupply\AccountsLaravel\Models\Accountsuser;
 
-class TSAccounts
+class Accounts
 {
 
     public static string $scopes = 'edit-theme view-user edit-locale';
@@ -32,7 +32,7 @@ class TSAccounts
      *
      * @var string
      */
-    public static $userModel = TsUser::class;
+    public static $userModel = Accountsuser::class;
 
     /**
      * Set the user model class name.
@@ -62,7 +62,7 @@ class TSAccounts
      */
     public static function post(string $path, array $data = []): Response
     {
-        return Http::withToken(Session::get('access_token'))->post(Config::get('tsaccounts.host') . $path, $data);
+        return Http::withToken(Session::get('access_token'))->post(Config::get('accounts.host') . $path, $data);
     }
 
     /**
@@ -70,7 +70,7 @@ class TSAccounts
      */
     public static function get(string $path): PromiseInterface|Response
     {
-        return Http::withToken(Session::get('access_token'))->get(Config::get('tsaccounts.host') . $path);
+        return Http::withToken(Session::get('access_token'))->get(Config::get('accounts.host') . $path);
 
     }
 

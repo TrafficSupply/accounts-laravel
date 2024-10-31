@@ -1,6 +1,6 @@
 {
-    "name": "trafficsupply/tsaccounts-laravel-package",
-    "description": "TSAccounts Laravel Package - Package to help with logging into TSAccounts.",
+    "name": "trafficsupply/accounts-laravel",
+    "description": "Accounts Laravel - Package to help with logging into TrafficSupply Accounts.",
     "type": "project",
     "license": "proprietary",
     "authors": [
@@ -11,18 +11,18 @@
     ],
     "autoload": {
         "psr-4": {
-            "TrafficSupply\\TSAccountsLaravelPackage\\": "src/"
+            "TrafficSupply\\AccountsLaravel\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "TrafficSupply\\TSAccountsLaravelPackage\\Tests\\": "tests/"
+            "TrafficSupply\\AccountsLaravel\\Tests\\": "tests/"
         }
     },
   "extra": {
     "laravel": {
       "providers": [
-        "ServiceProvider"
+        "TrafficSupply\\AccountsLaravel\\ServiceProvider"
       ]
     }
   },

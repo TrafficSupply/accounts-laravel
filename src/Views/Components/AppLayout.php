@@ -1,6 +1,6 @@
 <?php
 
-namespace TrafficSupply\TSAccountsLaravelPackage\Views\Components;
+namespace TrafficSupply\AccountsLaravel\Views\Components;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
@@ -12,6 +12,6 @@ class AppLayout extends Component
      */
     public function render(): View
     {
-        return view('TSAccounts::layouts.app');
+        return view('Accounts::layouts.app');
     }
 }

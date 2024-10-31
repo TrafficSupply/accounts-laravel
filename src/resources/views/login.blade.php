@@ -1,7 +1,7 @@
-<x-tsaccounts::guest-layout>
-    <a href="{{route('tsaccounts-login')}}" class="">
-        <x-TSAccounts::primary-button class="">
+<x-accounts::guest-layout>
+    <a href="{{route('accounts-login')}}" class="">
+        <x-Accounts::primary-button class="">
             {{trans('tsacounts::profile.login')}}
-        </x-TSAccounts::primary-button>
+        </x-Accounts::primary-button>
     </a>
-</x-tsaccounts::guest-layout>
+</x-accounts::guest-layout>

@@ -23,7 +23,7 @@
 <body class="font-sans antialiased">
 <div class="min-h-screen text-black dark:text-white bg-gray-100 dark:bg-gray-900 flex flex-col">
     <!-- Page Heading -->
-    @include('TSAccounts::layouts.navigation')
+    @include('Accounts::layouts.navigation')
 
 
     <!-- Page Content -->

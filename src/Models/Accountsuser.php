@@ -1,10 +1,10 @@
 <?php
 
-namespace TrafficSupply\TSAccountsLaravelPackage\Models;
+namespace TrafficSupply\AccountsLaravel\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TsUser extends Model
+class Accountsuser extends Model
 {
     /**
      * The attributes that are mass assignable.

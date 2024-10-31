@@ -19,16 +19,13 @@
 <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
     <div>
         <a href="/">
-            <x-TSAccounts::application-logo class="block h-12 w-auto fill-current"/>
+            <x-Accounts::application-logo class="block h-12 w-auto fill-current"/>
         </a>
     </div>
 
     <div
         class="w-full sm:max-w-md mt-6 px-6 py-4 mb-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg flex justify-center">
         {{ $slot }}
-    </div>
-    <div class="flex items-center gap-2">
-        <livewire:dark-mode-toggle/>
     </div>
 </div>
 

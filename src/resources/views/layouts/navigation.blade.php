@@ -7,7 +7,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('home') }}">
-                        <x-TSAccounts::application-logo class="block h-9 w-auto fill-current" />
+                        <x-Accounts::application-logo class="block h-9 w-auto fill-current" />
                     </a>
                 </div>
                 @isset($title)
@@ -21,12 +21,12 @@
                 @endisset
                 <!-- Navigation Links -->
                 <div class="space-x-8 -my-px ms-10 flex">
-                    <x-TSAccounts::nav-link :href="route('home')" :active="request()->routeIs('home')">
+                    <x-Accounts::nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ trans('tsacounts::profile.home') }}
-                    </x-TSAccounts::nav-link>
-                    <x-TSAccounts::nav-link :href="route('logout')">
+                    </x-Accounts::nav-link>
+                    <x-Accounts::nav-link :href="route('logout')">
                         {{ trans('tsacounts::profile.logout') }}
-                    </x-TSAccounts::nav-link>
+                    </x-Accounts::nav-link>
                 </div>
             </div>
         </div>

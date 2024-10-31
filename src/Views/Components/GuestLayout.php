@@ -1,6 +1,6 @@
 <?php
 
-namespace TrafficSupply\TSAccountsLaravelPackage\Views\Components;
+namespace TrafficSupply\AccountsLaravel\Views\Components;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
@@ -12,6 +12,6 @@ class GuestLayout extends Component
      */
     public function render(): View
     {
-        return view('TSAccounts::layouts.guest');
+        return view('Accounts::layouts.guest');
     }
 }

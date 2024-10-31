@@ -13,7 +13,7 @@ composer require trafficsupply/accounts-laravel
 If you don't use auto-discovery, add the ServiceProvider to the providers list. For Laravel 11 or newer, add the ServiceProvider in bootstrap/providers.php. For Laravel 10 or older, add the ServiceProvider in config/app.php.
 
 ```php
-TrafficSupply\TSAccountsLaravelPackage\ServiceProvider::class,
+TrafficSupply\AccountsLaravel\ServiceProvider::class,
 ```
 
 Add the following to your .env file:
