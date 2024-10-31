@@ -1,6 +1,6 @@
 # tsaccounts-laravel-package
 
-This package was made to make connecting with https://accounts.trafficsupply.nl easier.
+This package was made to make connecting with https://accounts.trafficsupply.nl easier, but can be used for any OAuth2 server.
 
 ### Installation
 Require this package with composer.
