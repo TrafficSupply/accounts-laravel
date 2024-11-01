@@ -1,7 +1,7 @@
 <x-accounts::guest-layout>
     <a href="{{route('accounts.login')}}" class="">
-        <x-Accounts::primary-button class="">
+        <x-accounts::primary-button class="">
             {{trans('accounts::profile.login')}}
-        </x-Accounts::primary-button>
+        </x-accounts::primary-button>
     </a>
 </x-accounts::guest-layout>
