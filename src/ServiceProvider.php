@@ -16,7 +16,7 @@ final class ServiceProvider extends ServiceProviderBase
     public function boot(Router $router): void
     {
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
-        $this->loadViewsFrom(__DIR__.'/resources/views', 'Accounts');
+        $this->loadViewsFrom(__DIR__.'/resources/views', 'accounts');
         $this->mergeConfigFrom(
             __DIR__.'/config/accounts.php', 'accounts'
         );
