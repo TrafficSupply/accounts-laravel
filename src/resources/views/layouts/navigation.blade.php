@@ -6,7 +6,7 @@
 
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('home') }}">
+                    <a href="{{ route(\TrafficSupply\AccountsLaravel\Accounts::home()) }}">
                         <x-Accounts::application-logo class="block h-9 w-auto fill-current" />
                     </a>
                 </div>
@@ -21,10 +21,10 @@
                 @endisset
                 <!-- Navigation Links -->
                 <div class="space-x-8 -my-px ms-10 flex">
-                    <x-Accounts::nav-link :href="route('home')" :active="request()->routeIs('home')">
+                    <x-Accounts::nav-link :href="route(\TrafficSupply\AccountsLaravel\Accounts::home())" :active="request()->route(\TrafficSupply\AccountsLaravel\Accounts::home())">
                         {{ trans('accounts::profile.home') }}
                     </x-Accounts::nav-link>
-                    <x-Accounts::nav-link :href="route('logout')">
+                    <x-Accounts::nav-link :href="route('accounts.logout')">
                         {{ trans('accounts::profile.logout') }}
                     </x-Accounts::nav-link>
                 </div>

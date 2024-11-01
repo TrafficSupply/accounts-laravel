@@ -22,27 +22,44 @@ class Accounts
     }
 
 
-    public static function setScopes(string $scopes): void
+    public static function setScopes(string $scopes): Accounts
     {
         self::$scopes = $scopes;
+        return new static;
+
     }
 
+    public static string $home = 'accounts.home';
+
+    public static function home(): string
+    {
+        return self::$home;
+    }
+
+    public static function setHomeNamedRoute(string $home): Accounts
+    {
+        self::$home = $home;
+        return new static;
+
+    }
     /**
      * The user model class name.
      *
      * @var string
      */
-    public static $userModel = Accountsuser::class;
+    public static string $userModel = Accountsuser::class;
 
     /**
      * Set the user model class name.
      *
-     * @param  string  $userModel
-     * @return void
+     * @param string $userModel
+     * @return Accounts
      */
-    public static function useUserModel($userModel)
+    public static function useUserModel(string $userModel): Accounts
     {
         static::$userModel = $userModel;
+        return new static;
+
     }
 
     /**
@@ -50,7 +67,7 @@ class Accounts
      *
      * @return string
      */
-    public static function userModel()
+    public static function userModel(): string
     {
         return static::$userModel;
     }

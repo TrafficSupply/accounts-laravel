@@ -22,7 +22,7 @@ class AccountsController
 
         $query = http_build_query([
             'client_id'     => Config::get('accounts.client_id'),
-            'redirect_uri'  => route('callback'),
+            'redirect_uri'  => route('accounts.callback'),
             'response_type' => 'code',
             'state'         => $state,
             'scopes'        => Accounts::scopes(),
@@ -62,7 +62,7 @@ class AccountsController
             'grant_type'    => 'authorization_code',
             'client_id'     => Config::get('accounts.client_id'),
             'client_secret' => Config::get('accounts.client_secret'),
-            'redirect_uri'  => route('callback'),
+            'redirect_uri'  => route('accounts.callback'),
             'code'          => $validated['code'],
         ]);
 
@@ -72,7 +72,7 @@ class AccountsController
         $request->session()->put('expires_in', $response->json()['expires_in']);
         Session::save();
 
-        return Redirect::to(route('home'));
+        return Redirect::to(route(Accounts::home()));
 
     }
 }
