@@ -47,5 +47,21 @@ php artisan vendor:publish --tag="accounts-migrations"
 php artisan migrate
 ```
 
+### Configuration
+You can change the configuration in the config file. The config file is located at config/accounts.php.
+You can change the client id, client secret, host and url in the config file.
 
+You can also change the User model, the User model is used to store the user data from the OAuth2 server. You may also change the home route and API scopes this way.
 
+Add the following to a ServiceProvider:
+```php
+use TrafficSupply\AccountsLaravel\Accounts;
+use TrafficSupply\AccountsLaravel\Models\Accountsuser;
+
+public function boot()
+{
+    Accounts::useUserModel(Accountsuser::class)
+        ->setHomeNamedRoute('accounts.home')
+        ->setScopes('edit-theme view-user edit-locale');
+}
+```
