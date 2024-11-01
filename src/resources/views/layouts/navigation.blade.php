@@ -21,7 +21,7 @@
                 @endisset
                 <!-- Navigation Links -->
                 <div class="space-x-8 -my-px ms-10 flex">
-                    <x-accounts::nav-link :href="route(\TrafficSupply\AccountsLaravel\Accounts::home())" :active="request()->route(\TrafficSupply\AccountsLaravel\Accounts::home())">
+                    <x-accounts::nav-link :href="route(\TrafficSupply\AccountsLaravel\Accounts::home())" :active="request()->routeIs(\TrafficSupply\AccountsLaravel\Accounts::home())">
                         {{ trans('accounts::profile.home') }}
                     </x-accounts::nav-link>
                     <x-accounts::nav-link :href="route('accounts.logout')">
